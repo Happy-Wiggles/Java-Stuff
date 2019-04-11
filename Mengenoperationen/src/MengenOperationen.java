@@ -30,9 +30,17 @@ public class MengenOperationen {
             Matcher matcher = pattern.matcher(takeIt);
             boolean valid = m.matches();
             if(valid){
-                String firstSet = matcher.group(1);
-                String Operator = matcher.group(2);
-                String secondSet = matcher.group(3);
+                String firstSet = "";
+                String Operator = "";
+                String secondSet = "";
+                while(matcher.find()) {
+                    firstSet = matcher.group(1);
+                    Operator = matcher.group(2);
+                    secondSet = matcher.group(3);
+                }
+                System.out.println("firstSet: " + firstSet);
+                System.out.println("Operator: " + Operator);
+                System.out.println("secondSet: " + secondSet);
                 Operationen ops= new Operationen();
 
 
