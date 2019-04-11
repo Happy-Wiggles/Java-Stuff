@@ -3,16 +3,6 @@ import java.util.HashSet;
 
 public class Operationen {
 
-        public void decideOperation(Set setA, Set setB){
-            if(setA.contains('*') || setB.contains('*')){
-                schnittMenge(setA, setB);
-            }else if(setA.contains('-') || setB.contains('-')){
-                differenzMenge(setA, setB);
-            }else if(setA.contains('+') || setB.contains('+')){
-                vereinigungsMenge(setA, setB);
-            }
-        }
-
         //Schnitt (*)
         public Set schnittMenge(Set setA, Set setB){
             Set <Integer> schnitt = new HashSet<Integer>(setA);
