@@ -1,30 +1,11 @@
 import java.util.Scanner;
 import java.util.Set;
 import java.util.HashSet;
+import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class MengenOperationen {
-
-    //Schnitt (*)
-    private static Set schnittMenge(Set setA, Set setB){
-        Set <Integer> schnitt = new HashSet<Integer>(setA);
-        schnitt.retainAll(setB);
-        return schnitt;
-    }
-    //Differenz (-)
-    private static Set differenzMenge(Set setA, Set setB){
-        Set <Integer> differenz = new HashSet<Integer>(setA);
-        differenz.removeAll(setB);
-        return differenz;
-    }
-    //Vereinigung (+)
-    private static Set vereinigungsMenge(Set setA, Set setB){
-        Set <Integer> vereinigung = new HashSet<Integer>(setA);
-        vereinigung.addAll(setB);
-        return vereinigung;
-    }
-
+public class Main {
     public static void main(String [] args){
 
         boolean shouldExit = false;
@@ -65,18 +46,28 @@ public class MengenOperationen {
                 System.out.println("firstSet: " + firstSet);
                 System.out.println("Operator: " + operator);
                 System.out.println("secondSet: " + secondSet);
+                String[] firstStringSet = firstSet.split(",");
+                String[] secondStringSet = secondSet.split(",");
+                
+                for(String sInt : firstStringSet){
+                  setA.add(Integer.parseInt(sInt));
+                }
+                for(String sInt : secondStringSet){
+                  setB.add(Integer.parseInt(sInt));
+                }
 
-                setA.add(firstSet); //Muss noch String -> Int converten und dann zu Set adden bzw converten
-                setB.add(secondSet);
                 switch(operator){
                     case "+":
-                        System.out.println(vereinigungsMenge(setA, setB));
+                        System.out.println(Operatoren.vereinigungsMenge(setA, setB));
                         break;
                     case "*":
-                        System.out.println(schnittMenge(setA, setB));
+                        System.out.println(Operatoren.schnittMenge(setA, setB));
                         break;
                     case "-":
-                        System.out.println(differenzMenge(setA, setB));
+                        System.out.println(Operatoren.differenzMenge(setA, setB));
+                        break;
+                    default:
+                        System.out.print("Operator " + operator + "nicht bekannt");
                         break;
                 }
         }
