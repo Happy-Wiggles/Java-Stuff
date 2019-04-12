@@ -1,26 +1,26 @@
+import java.util.Scanner;
 import java.util.Set;
 import java.util.HashSet;
+import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
-public class Operationen {
+class Operatoren{
 
     //Schnitt (*)
-    public Set schnittMenge(Set setA, Set setB){
-        Set <Integer> schnitt = new HashSet<Integer>(setA);
-        schnitt.retainAll(setB);
-        return schnitt;
+    public static Set schnittMenge(Set setA, Set setB){
+        setA.retainAll(setB);
+        return setA;
     }
     //Differenz (-)
-    public Set differenzMenge(Set setA, Set setB){
-        Set <Integer> differenz = new HashSet<Integer>(setA);
-        differenz.removeAll(setB);
-        return differenz;
+    public static Set differenzMenge(Set setA, Set setB){
+        setA.removeAll(setB);
+        return setA;
     }
     //Vereinigung (+)
-    public Set vereinigungsMenge(Set setA, Set setB){
-        Set <Integer> vereinigung = new HashSet<Integer>(setA);
-        vereinigung.addAll(setB);
-        return vereinigung;
+    public static Set vereinigungsMenge(Set setA, Set setB){
+        setA.addAll(setB);
+        return setA;
+
     }
-
-
 }
